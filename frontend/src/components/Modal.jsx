@@ -65,3 +65,72 @@ const Modal = ({
 };
 
 export default Modal;
+
+
+{/**
+  
+  
+  import React from "react";
+
+const Modal = ({
+  children,
+  isOpen,
+  onClose,
+  title,
+  showActionBtn,
+  actionBtnIcon = null,
+  actionBtnText,
+  onActionClick,
+}) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex flex-col bg-black/70">
+ 
+      <div className="flex justify-between items-center px-6 py-4 bg-white shadow-md">
+        <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
+
+        <div className="flex items-center gap-3">
+          {showActionBtn && (
+            <button
+              onClick={onActionClick}
+              className="flex items-center gap-2 text-sm text-white bg-purple-600 hover:bg-purple-700 px-3 py-1.5 rounded-md transition"
+            >
+              {actionBtnIcon}
+              {actionBtnText}
+            </button>
+          )}
+          <button
+            onClick={onClose}
+            className="text-gray-600 hover:text-gray-900 w-9 h-9 flex justify-center items-center rounded-full hover:bg-gray-200 transition"
+            aria-label="Close Modal"
+          >
+            <svg
+              className="w-5 h-5"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 14"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M1 1l6 6m0 0l6 6M7 7L1 13M7 7l6-6"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+ 
+      <div className="flex-1 flex justify-center items-center bg-gray-100 p-6">
+        <div className="w-full h-full max-w-5xl bg-white shadow-lg rounded-lg p-10 border border-gray-200 flex justify-center items-center">
+          <div className="w-full h-full">{children}</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Modal;
+*/}

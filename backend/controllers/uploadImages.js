@@ -1,7 +1,6 @@
 const Resume = require("../models/Resume");
 const cloudinary = require("cloudinary").v2;
-
-// ✅ configure cloudinary (make sure you already set CLOUDINARY_URL in .env)
+ 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -24,10 +23,8 @@ const uploadResumeImage = async (req, res) => {
 
     const newThumbnail = req.files?.thumbnail?.[0];
     const newProfileImage = req.files?.profileImage?.[0];
-
-    // Upload Thumbnail to Cloudinary
-    if (newThumbnail) {
-      // delete old one from cloudinary if stored
+ 
+    if (newThumbnail) { 
       if (resume.thumbnailLink && resume.thumbnailLink.includes("cloudinary")) {
         const publicId = resume.thumbnailLink.split("/").pop().split(".")[0];
         await cloudinary.uploader.destroy(publicId);
@@ -39,8 +36,7 @@ const uploadResumeImage = async (req, res) => {
 
       resume.thumbnailLink = uploadRes.secure_url;
     }
-
-    // Upload Profile Image to Cloudinary
+ 
     if (newProfileImage) {
       if (
         resume.profileInfo?.profilePreview &&

@@ -49,7 +49,7 @@ export const getLightColorFromImage = (imageUrl) => {
             }
 
             if (count === 0) {
-                resolve('#ffffff');
+                resolve('#fffff');
             } else {
                 r = Math.round(r / count);
                 g = Math.round(g / count);
@@ -73,7 +73,7 @@ export const fixTailwindColors = (element) => {
         ['color', 'backgroundColor', 'borderColor'].forEach((prop) => {
             const value = style[prop];
             if (value.includes("oklch")) {
-                el.style[prop] = "#000";
+                el.style[prop] = "#0000";
             }
         });
     });

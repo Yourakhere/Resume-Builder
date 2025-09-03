@@ -24,8 +24,9 @@ import ThemeSelector from './ThemeSelector.jsx';
 const EditResume = () => {
   const { resumeId } = useParams();
   const navigate = useNavigate();
+  const resumeRef = useRef();
 
-  const resumeRef = useRef(null);
+  //const resumeRef = useRef(null);
   const resumeDownloadRef = useRef(null);
 
   const [baseWidth, setBaseWidth] = useState(800);
@@ -510,6 +511,53 @@ const fetchResumeDetailsById = async () => {
       window.removeEventListener("resize", updateBaseWidth);
     };
   }, []);
+ 
+const handlePrint = () => {
+  // 1. Check if the resume content element exists.
+  const resumeContent = resumeRef.current;
+  if (!resumeContent) {
+    console.error("Resume content not found.");
+    return;
+  }
+
+  // 2. Create a hidden iframe.
+  const iframe = document.createElement("iframe");
+  iframe.style.position = "absolute";
+  iframe.style.width = "0";
+  iframe.style.height = "0";
+  iframe.style.border = "none";
+  document.body.appendChild(iframe);
+
+  // 3. Get the iframe's document context.
+  const printDocument = iframe.contentWindow.document;
+
+  // 4. Write the basic HTML structure.
+  printDocument.open();
+  printDocument.write("<html><head><title>Print</title></head><body></body></html>");
+  
+  // 5. Copy styles from the main document to the iframe's head.
+  // This is the most reliable way to ensure styles are applied.
+  const styles = document.querySelectorAll('link[rel="stylesheet"], style');
+  styles.forEach(style => {
+    printDocument.head.appendChild(style.cloneNode(true));
+  });
+
+  // 6. Copy the resume's HTML into the iframe's body.
+  printDocument.body.innerHTML = resumeContent.innerHTML;
+  printDocument.close();
+
+  // 7. Wait for content and styles to load, then print.
+  iframe.contentWindow.onload = () => {
+    setTimeout(() => { // A short delay ensures all resources (like images/fonts) are loaded
+      iframe.contentWindow.focus();
+      iframe.contentWindow.print();
+      
+      // 8. Remove the iframe after printing.
+      document.body.removeChild(iframe);
+    }, 500); // 500ms delay is usually sufficient
+  };
+};
+
 
   return (
     <DashboardLayout>
@@ -611,7 +659,7 @@ const fetchResumeDetailsById = async () => {
       onClose={() => setOpenThemeSelector(false)}
       title="change Theme"
       >
-      <div className="w-[90vw] h-[80vh]">
+      <div className="w-[40vw] h-[80vh]">
         <ThemeSelector
         selectedTheme={resumeData?.template}
         setSelectedTheme={(value) => {
@@ -625,16 +673,24 @@ const fetchResumeDetailsById = async () => {
         />
       </div>
       </Modal>
-     <Modal
+
+<Modal
   isOpen={openPreviewModal}
   onClose={() => setOpenPreviewModal(false)}
   title={resumeData?.title || "Resume Preview"}
-  showActionBtn
-  actionBtnText="Download"
-  actionBtnIcon={<LuDownload className="text-[16px]" />}
-  onActionClick={reactToPrintFn}
-
 >
+  {/* Print Button */}
+  <div className="flex justify-end mb-3">
+    <button
+      className="btn-small"
+      onClick={handlePrint}
+    >
+      <LuDownload className="text-[16px]" />
+      Print Resume
+    </button>
+  </div>
+
+  {/* Resume Preview */}
   <div
     ref={resumeDownloadRef}
     className="w-[98vw] h-[90vh] overflow-auto bg-white"
@@ -647,9 +703,16 @@ const fetchResumeDetailsById = async () => {
   </div>
 </Modal>
 
+
+
+<button className="btn-small" onClick={handlePrint}>
+  <LuDownload className="text-[16px]" />
+  Print Resume
+</button>
+
+
     </DashboardLayout>
   );
 };
 
 export default EditResume;
- 
