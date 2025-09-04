@@ -28,8 +28,8 @@ const Title = ({ text, color }) => {
   );
 };
 
-const TemplateOne = ({ resumeData, colorPlatte, containerWidth }) => {
-  const themeColors = colorPlatte?.length > 0 ? colorPlatte : DEFAULT_THEME;
+const TemplateOne = ({ resumeData, colorPalette, containerWidth }) => {
+  const themeColors = colorPalette?.length > 0 ? colorPalette : DEFAULT_THEME;
   const resumeRef = useRef(null);
   const [baseWidth, setBaseWidth] = useState(800);
   const [scale, setScale] = useState(1);

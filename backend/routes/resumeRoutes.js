@@ -17,5 +17,5 @@ router.get("/:id", protect, getResumeById);
 router.put("/:id", protect, updateResume);
 router.delete("/:id", protect, deleteResume);
 
-router.put("/:id/upload-image",protect,uploadResumeImage);
+router.put("/:id/upload-image", protect, uploadResumeImage);
 module.exports = router;

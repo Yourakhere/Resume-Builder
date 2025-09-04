@@ -1,6 +1,7 @@
-import TEMPLATE_ONE_IMG from '../assets/template-one.png';
+//import TEMPLATE_ONE_IMG from '../assets/template-one.png';
 import TEMPLATE_TWO_IMG from '../assets/template-two.png';
 import TEMPLATE_THREE_IMG from '../assets/template-three.png';
+
 export const resumeTemplates = [
     {
     id: '01',
@@ -14,7 +15,7 @@ export const resumeTemplates = [
   }
 ];
 
-export const themeColorPalette = {
+export const colorPalette = {
   themeOne: [
     ['#EBFDFF', '#A1F4FD', '#CEFAFE', '#00B8DB', '#4A5565'],
     ['#F3FBFF', '#E4FBFF', '#93E2DA', '#2AC9AB', '#304C5A'],

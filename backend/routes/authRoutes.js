@@ -22,11 +22,4 @@ router.post("/upload-image", upload.single("image"), (req, res) => {
 
 module.exports = router;
 
-{/**
-  router.post("/upload", upload.single("file"), (req, res) => {
-  res.json({
-    url: req.file.path,
-    public_id: req.file.filename,
-  });
-});
-  */}
+ 

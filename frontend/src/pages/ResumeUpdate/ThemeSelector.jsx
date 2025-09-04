@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import {
   DUMMY_RESUME_DATA,
   resumeTemplates,
-  themeColorPalette,
+  colorPalette,
 } from "../../utils/data";
 import { LuCircleCheckBig } from "react-icons/lu";
 import Tabs from "../../components/Tabs";
@@ -25,8 +25,7 @@ const ThemeSelector = ({ selectedTheme, setSelectedTheme, resumeData, onClose })
     theme: selectedTheme?.theme || "",
     index: -1,
   });
-
-  // Apply theme when user clicks Done
+ 
   const handleThemeSelection = () => {
     setSelectedTheme({
       colorPalette: selectedColorPalette?.colors,
@@ -34,8 +33,7 @@ const ThemeSelector = ({ selectedTheme, setSelectedTheme, resumeData, onClose })
     });
     onClose();
   };
-
-  // Apply palette immediately for live preview
+ 
   const handlePaletteSelect = (palette, index) => {
     setSelectedColorPalette({ colors: palette, index });
     setSelectedTheme((prev) => ({
@@ -43,8 +41,7 @@ const ThemeSelector = ({ selectedTheme, setSelectedTheme, resumeData, onClose })
       colorPalette: palette,
     }));
   };
-
-  // Apply template immediately for live preview
+ 
   const handleTemplateSelect = (templateId, index) => {
     setSelectedTemplate({ theme: templateId, index });
     setSelectedTheme((prev) => ({
@@ -68,8 +65,7 @@ const ThemeSelector = ({ selectedTheme, setSelectedTheme, resumeData, onClose })
   }, []);
 
   return (
-    <div className="container mx-auto px-2 md:px-8">
-      {/* Tabs + Done button */}
+    <div className="container mx-auto px-2 md:px-8"> 
       <div className="flex items-center justify-between mb-4 mt-4">
         <Tabs tabs={TAB_DATA} activeTab={tabValue} setActiveTab={setTabValue} />
         <button
@@ -81,8 +77,7 @@ const ThemeSelector = ({ selectedTheme, setSelectedTheme, resumeData, onClose })
         </button>
       </div>
 
-      <div className="grid grid-cols-12 gap-5">
-        {/* Sidebar - Templates / Palettes */}
+      <div className="grid grid-cols-12 gap-5"> 
         <div className="col-span-12 md:col-span-5 bg-white rounded-lg shadow-sm p-4 max-h-[80vh] overflow-y-auto custom-scrollbar">
           <div className="grid grid-cols-2 gap-4">
             {tabValue === "Templates" &&
@@ -96,7 +91,7 @@ const ThemeSelector = ({ selectedTheme, setSelectedTheme, resumeData, onClose })
               ))}
 
             {tabValue === "Color Palette" &&
-              themeColorPalette.themeOne?.map((palette, index) => (
+              colorPalette.themeOne?.map((palette, index) => (
                 <ColorPalette
                   key={`palette_${index}`}
                   colors={palette}
@@ -106,8 +101,7 @@ const ThemeSelector = ({ selectedTheme, setSelectedTheme, resumeData, onClose })
               ))}
           </div>
         </div>
-
-        {/* Preview */}
+ 
         <div
           className="col-span-12 md:col-span-7 bg-white rounded-lg shadow-sm p-4 overflow-auto max-h-[80vh]"
           ref={resumeRef}
