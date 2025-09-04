@@ -1,5 +1,7 @@
-export const BASE_URL = "http://localhost:8000";
-
+//export const BASE_URL = "http://localhost:8000";
+export const BASE_URL = "https://resume-builder-backendnew.vercel.app";
+//export const BASE_URL = "https://resume-builder-backend-6zq0.onrender.com";
+ ///
 export const API_PATHS = {
   AUTH: {
     REGISTER: "/api/auth/register",
