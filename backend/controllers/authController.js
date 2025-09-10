@@ -53,8 +53,10 @@ const loginUser= async(req, res) => {
         token: generateToken(user._id)
       })
     } catch (error) {
-      res.status(500).json({message:"Server error in loginUser",error:error.message})
-    }
+  console.error("Register error:", error);
+  res.status(500).json({ message: "Server error", error: error.message });
+}
+
 }
 
 const getUserProfile = async (req, res) => {
