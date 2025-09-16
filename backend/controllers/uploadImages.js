@@ -1,4 +1,6 @@
-const Resume = require("../models/Resume");
+
+
+{/** const Resume = require("../models/Resume");
 const cloudinary = require("cloudinary").v2;
 const streamifier = require("streamifier");
 
@@ -84,9 +86,7 @@ const uploadResumeImage = async (req, res) => {
 module.exports = { uploadResumeImage };
 
 
-
-
-{/** 
+*/}
 const Resume = require("../models/Resume");
 const cloudinary = require("cloudinary").v2;
  
@@ -160,5 +160,4 @@ const uploadResumeImage = async (req, res) => {
   }
 };
 
-module.exports = { uploadResumeImage };
-*/}
+module.exports = { uploadResumeImage }; 
