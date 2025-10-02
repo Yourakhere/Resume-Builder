@@ -1,0 +1,21 @@
+{
+  "name": "YOUR Resume",
+  "short_name": "Your Resume",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#317EFB",
+  "description": "Your Resume Builder - Create and customize your professional resume with ease.",
+  "icons": [
+    {
+      "src": "/icon-72x72.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-72x72.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
