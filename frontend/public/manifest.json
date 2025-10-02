@@ -1,7 +1,7 @@
 {
   "name": "YOUR Resume",
   "short_name": "Your Resume",
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#317EFB",
@@ -9,11 +9,11 @@
   "icons": [
     {
       "src": "/icon-72x72.png",
-      "sizes": "192x192",
+      "sizes": "225x225",
       "type": "image/png"
     },
     {
-      "src": "/icon-72x72.png",
+      "src": "/resume.png",
       "sizes": "512x512",
       "type": "image/png"
     }
