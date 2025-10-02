@@ -1,8 +1,4 @@
 
-{/**
-    
-
-  // src/components/InstallPrompt.jsx
 import React, { useEffect, useState } from "react";
 
 function InstallPrompt() {
@@ -65,9 +61,11 @@ export default InstallPrompt;
 
 
 
- */}
 
 
+
+{/**
+ 
     import React, { useEffect, useState } from "react";
 import { Download, X, Smartphone } from "lucide-react";
 
@@ -157,3 +155,4 @@ function InstallPrompt() {
 }
 
 export default InstallPrompt;
+ */}
